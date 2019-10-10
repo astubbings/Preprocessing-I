@@ -58,12 +58,15 @@ body {
 body {
   background-color: #bada55;
   font-family: @font-styleSerif;
-  margin: 10%;
+  margin: 6%;
 
   @media (max-width: 500px) {
-    margin:2%;
+    margin: 1%;
+    background-color: none;
   }
 }
+
+
 
 header {
   font-family: @font-styleMonoblock;
@@ -73,8 +76,8 @@ header {
       display: flex;
       justify-content: flex-end;
       flex-wrap: wrap;
-
       a {
+        color: darkgreen;
         text-decoration: none;
         padding: 2%;
         
@@ -96,16 +99,21 @@ header {
  
 }
 
-.topContent {
-  margin-top: 5%;
-  margin-bottom: 5%;
+.contentMarginBack {
+  margin: 3% 0; //mixin for mvp
   background-color: #a2e895;
-  padding: 5%;
+  border: 1px solid lightskyblue;
+  padding: 3%;
   display: flex;
+}
+
+.topContent {
+  .contentMarginBack(); //mixin above
   flex-direction: column;
+  
 
   h1,h2,h3 {
-    padding-top: 8px;
+    padding-top: 6px;
   }
   h1 {
     font-size: 4.8rem;
@@ -113,8 +121,112 @@ header {
   }  
   h2 {
     font-size: 2rem;
+    font-family: @font-styleMonoblock;
   }
   h3 {
     font-size: 1.5rem;
+  }
+}
+
+.middleContent {
+  
+  .contentMarginBack(); //another use of the mixin
+  justify-content: space-between;
+
+  .middleContainer {
+    width: 45%;
+    background-color: #bada55;
+    padding: 1%;
+    
+    h2 {
+    font-family: @font-styleMonoblock;
+    font-size: 2.5rem;
+    text-decoration: underline;
+    }
+
+    p {
+      margin-top: 5%;
+      font-size: 2rem;
+    }
+    ul {
+      margin-top: 5%;
+      margin-left: 10%;
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 500px){
+    
+    .contentMarginBack();
+    
+    flex-direction: column;
+    // justify-content: space-between;
+    
+    .middleContainer {
+      width: 100%;
+      margin-bottom: 5%;
+    }
+  }
+}
+
+.skillsContent {
+  .contentMarginBack();
+  align-items: space-around;
+    .skillsContainer {
+      display: flex;
+      flex-direction: column;
+      width:100%;
+      font-size: 2rem;
+      background-color: #bada55;
+      padding: 1%;
+     .history{
+        font-size: 3.0rem;
+        }
+      .columnHead {
+        text-decoration: underline;
+      }  
+
+      .jobs{
+        display: flex;
+        width: 100%;
+        margin-bottom: 2%;
+        align-items: space-between;
+        
+        .year {
+        width: 10%;
+        border-top: 1px solid lightskyblue;
+        
+        }
+        .role {
+        width: 60%;
+        border-top: 1px solid lightskyblue;
+        } 
+        .positiveRecomendation {
+        width: 30%;
+        border-top: 1px solid lightskyblue;
+        }
+      }
+      
+    }
+    
+}
+
+
+
+
+.footerContainer {
+  .contentMarginBack();
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    font-family: @font-styleMonoblock;
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    width: 40%;
+    text-align: center;
   }
 }

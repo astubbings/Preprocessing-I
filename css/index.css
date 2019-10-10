@@ -154,11 +154,12 @@ body {
 body {
   background-color: #bada55;
   font-family: "Rufina", serif;
-  margin: 10%;
+  margin: 6%;
 }
 @media (max-width: 500px) {
   body {
-    margin: 2%;
+    margin: 1%;
+    background-color: none;
   }
 }
 header {
@@ -171,6 +172,7 @@ header nav {
   flex-wrap: wrap;
 }
 header nav a {
+  color: darkgreen;
   text-decoration: none;
   padding: 2%;
 }
@@ -186,25 +188,133 @@ header nav a {
     margin-bottom: 6px;
   }
 }
-.topContent {
-  margin-top: 5%;
-  margin-bottom: 5%;
+.contentMarginBack {
+  margin: 3% 0;
   background-color: #a2e895;
-  padding: 5%;
+  border: 1px solid lightskyblue;
+  padding: 3%;
+  display: flex;
+}
+.topContent {
+  margin: 3% 0;
+  background-color: #a2e895;
+  border: 1px solid lightskyblue;
+  padding: 3%;
   display: flex;
   flex-direction: column;
 }
 .topContent h1,
 .topContent h2,
 .topContent h3 {
-  padding-top: 8px;
+  padding-top: 6px;
 }
 .topContent h1 {
   font-size: 4.8rem;
 }
 .topContent h2 {
   font-size: 2rem;
+  font-family: "IBM Plex Mono", monospace;
 }
 .topContent h3 {
   font-size: 1.5rem;
+}
+.middleContent {
+  margin: 3% 0;
+  background-color: #a2e895;
+  border: 1px solid lightskyblue;
+  padding: 3%;
+  display: flex;
+  justify-content: space-between;
+}
+.middleContent .middleContainer {
+  width: 45%;
+  background-color: #bada55;
+  padding: 1%;
+}
+.middleContent .middleContainer h2 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 2.5rem;
+  text-decoration: underline;
+}
+.middleContent .middleContainer p {
+  margin-top: 5%;
+  font-size: 2rem;
+}
+.middleContent .middleContainer ul {
+  margin-top: 5%;
+  margin-left: 10%;
+  font-size: 2rem;
+}
+@media (max-width: 500px) {
+  .middleContent {
+    margin: 3% 0;
+    background-color: #a2e895;
+    border: 1px solid lightskyblue;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+  }
+  .middleContent .middleContainer {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+}
+.skillsContent {
+  margin: 3% 0;
+  background-color: #a2e895;
+  border: 1px solid lightskyblue;
+  padding: 3%;
+  display: flex;
+  align-items: space-around;
+}
+.skillsContent .skillsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 2rem;
+  background-color: #bada55;
+  padding: 1%;
+}
+.skillsContent .skillsContainer .history {
+  font-size: 3rem;
+}
+.skillsContent .skillsContainer .columnHead {
+  text-decoration: underline;
+}
+.skillsContent .skillsContainer .jobs {
+  display: flex;
+  width: 100%;
+  margin-bottom: 2%;
+  align-items: space-between;
+}
+.skillsContent .skillsContainer .jobs .year {
+  width: 10%;
+  border-top: 1px solid lightskyblue;
+}
+.skillsContent .skillsContainer .jobs .role {
+  width: 60%;
+  border-top: 1px solid lightskyblue;
+}
+.skillsContent .skillsContainer .jobs .positiveRecomendation {
+  width: 30%;
+  border-top: 1px solid lightskyblue;
+}
+.footerContainer {
+  margin: 3% 0;
+  background-color: #a2e895;
+  border: 1px solid lightskyblue;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footerContainer h1 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+.footerContainer h2 {
+  font-size: 1.5rem;
+  width: 40%;
+  text-align: center;
 }
