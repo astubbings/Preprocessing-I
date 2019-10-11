@@ -4,56 +4,229 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,blockquote:after,q:before,q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
+//  2 font styles from google
+
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Rufina&display=swap");
+
+@font-styleMonoblock: "IBM Plex Mono", monospace;
+@font-styleSerif: "Rufina", serif;
+
+html {
+  font-size: 62.5%;
 }
 
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #bada55;
+  font-family: @font-styleSerif;
+  margin: 6%;
+
+  @media (max-width: 500px) {
+    margin: 1%;
+    background-color: none;
+  }
+}
+
+
+
+header {
+  font-family: @font-styleMonoblock;
+  font-size: 2rem;
+
+  nav {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      a {
+        color: darkgreen;
+        text-decoration: none;
+        padding: 2%;
+        
+      }
+
+  }
+  @media (max-width: 500px) {
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    a {
+      border-bottom: 1px dashed lightseagreen;
+      border-radius: 20%;
+      margin-bottom: 6px;
+    }
+  }
+ 
+}
+
+.contentMarginBack {
+  margin: 3% 0; //mixin for mvp
+  background-color: #a2e895;
+  border: 1px solid lightskyblue;
+  padding: 3%;
+  display: flex;
+}
+
+.topContent {
+  .contentMarginBack(); //mixin above
+  flex-direction: column;
+  
+
+  h1,h2,h3 {
+    padding-top: 6px;
+  }
+  h1 {
+    font-size: 4.8rem;
+    // margin-top: 5%;  
+  }  
+  h2 {
+    font-size: 2rem;
+    font-family: @font-styleMonoblock;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.middleContent {
+  
+  .contentMarginBack(); //another use of the mixin
+  justify-content: space-between;
+
+  .middleContainer {
+    width: 45%;
+    background-color: #bada55;
+    padding: 1%;
+    
+    h2 {
+    font-family: @font-styleMonoblock;
+    font-size: 2.5rem;
+    text-decoration: underline;
+    }
+
+    p {
+      margin-top: 5%;
+      font-size: 2rem;
+    }
+    ul {
+      margin-top: 5%;
+      margin-left: 10%;
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 500px){
+    
+    .contentMarginBack();
+    
+    flex-direction: column;
+    // justify-content: space-between;
+    
+    .middleContainer {
+      width: 100%;
+      margin-bottom: 5%;
+    }
+  }
+}
+
+.skillsContent {
+  .contentMarginBack();
+  align-items: space-around;
+    .skillsContainer {
+      display: flex;
+      flex-direction: column;
+      width:100%;
+      font-size: 2rem;
+      background-color: #bada55;
+      padding: 1%;
+      .history{
+        font-size: 3.0rem;
+        }
+      .columnHead {
+        text-decoration: underline;
+      }  
+
+      .jobs{
+        display: flex;
+        width: 100%;
+        margin-bottom: 2%;
+        align-items: space-between;
+        
+        .year {
+        width: 15%;
+        border-top: 1px solid lightskyblue;
+        
+        }
+        .role {
+        width: 60%;
+        border-top: 1px solid lightskyblue;
+        } 
+        .positiveRecomendation {
+        width: 15%;
+        border-top: 1px solid lightskyblue;
+        }
+      }
+      
+    }
+    
+}
+
+
+
+
+.footerContainer {
+  .contentMarginBack();
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    font-family: @font-styleMonoblock;
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    width: 60%;
+    text-align: center;
+  }
+}
